@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/decimal.js/10.0.1/decimal.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <h1>简书增加阅读量</h1>
+    <form class="post-num-form">
+        <div class="form-group">
+            <label for="post_num">文章编号</label>
+            <input type="text" class="form-control" id="post_num" placeholder="请输入文章编号" required>
+        </div>
+        <button type="button" name="get-post" class="btn btn-primary">确定</button>
+    </form>
+    <div class="post-info">
+    </div>
+    <form class="increase-views-form" style="display: none">
+        <div class="form-group">
+            <label for="increase_count">增加阅读量</label>
+            <input type="text" class="form-control" id="increase_count" placeholder="请输入增加阅读量" required>
+        </div>
+        <div class="form-group" style="display: none">
+            <label for="csrf_token">CSRF_TOKEN</label>
+            <input type="text" class="form-control" id="csrf_token" placeholder="" required>
+        </div>
+        <div class="form-group" style="display: none">
+            <label for="uuid">UUID</label>
+            <input type="text" class="form-control" id="uuid" placeholder="" required>
+        </div>
+        <button type="button" name="create-task" class="btn btn-primary">确定</button>
+    </form>
+    <div class="progress-div" style="display: none">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0"
+                 aria-valuemax="100">0%
+            </div>
+        </div>
+        <input type="hidden" id="task_id">
+        <button type="button" name="dis-task" class="btn btn-danger">取消任务</button>
+    </div>
+</div>
+<script src="./js/main.js"></script>
+</body>
+</html>

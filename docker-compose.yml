@@ -1,0 +1,34 @@
+version: "2"
+
+services:
+
+  app:
+    build: .
+    restart: always
+    environment:
+      - DJANGO_SETTINGS_MODULE=sp.settings.prod
+    ports:
+      - "8020:8000"
+    links:
+      - redis:redis
+      - mysql:mysql
+
+  celery:
+    build: .
+    restart: always
+    environment:
+      - DJANGO_SETTINGS_MODULE=sp.settings.prod
+    command: celery -A sp worker -l info
+    links:
+      - redis:redis
+
+  redis:
+    image: redis:alpine
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_DATABASE=sp
+      - MYSQL_ROOT_PASSWORD=123456
